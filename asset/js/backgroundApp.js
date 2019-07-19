@@ -1,10 +1,13 @@
 $(document).ready(function () {
 
-    var compteur = 0;
+    var activated = false;
     var time = 3000;
     var stream = "solary";
 
     setInterval(function () {
+
+        console.log(activated);
+
         $.ajax({
             type: "GET",
             beforeSend: function(request) {
@@ -17,23 +20,24 @@ $(document).ready(function () {
             success: function (data) {
 
                 //Si le stream est on et que la notif n'est jamais apparu
-                if (data.data.length > 0 && compteur < 1) {
+                if (data.data.length > 0 && !activated) {
 
                     new Notification('Stream Open Notif', {
                         icon: 'img/icon.png',
                         body: "Petite notification d'avertissement pour prevenir que le stream est bien on"
                     });
 
-                    compteur++;
+                    activated = true;
 
-                    //Si le stream est off mais que le compteur a était passé a 1
-                } else if (data.data.length < 1 && compteur > 0) {
+                    //Si le stream est off mais que la notif a déja était activée
+                } else if (data.data.length == 0 && activated) {
 
-                    compteur = 0;
+                    activated = false;
 
                 }
             }
         });
+
     },time);
 
 });
