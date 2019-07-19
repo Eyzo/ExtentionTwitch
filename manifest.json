@@ -14,5 +14,11 @@
   },
   "icons": {
     "128" : "img/icon.png"
+  },
+  "background" : {
+    "scripts": [
+      "node_modules/jquery/dist/jquery.min.js",
+      "asset/js/backgroundApp.js"
+    ]
   }
 }
