@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "extention Axel",
+  "description": "Extention Twitch Axel",
+  "version": "1.0",
+  "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "notifications"
+  ],
+  "browser_action": {
+    "default_icon" : "img/icon.png",
+    "default_popup" : "popup.html"
+  },
+  "icons": {
+    "128" : "img/icon.png"
+  }
+}
