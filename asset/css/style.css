@@ -1,8 +1,9 @@
 body {
-    width: 600px;
-    height: 600px;
 }
 
 .status-image {
+    display: block;
+    width:150px;
+    height:150px;
     margin: auto;
 }

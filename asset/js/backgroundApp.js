@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     var compteur = 0;
+    var time = 3000;
     var stream = "solary";
 
     setInterval(function () {
@@ -24,9 +25,15 @@ $(document).ready(function () {
                     });
 
                     compteur++;
+
+                    //Si le stream est off mais que le compteur a était passé a 1
+                } else if (data.data.length < 1 && compteur > 0) {
+
+                    compteur = 0;
+
                 }
             }
         });
-    },5000);
+    },time);
 
 });
